@@ -4,14 +4,27 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "copy:readme": "copyfiles ./README.md ./projects/ng-date-range-picker",
+    "build": "npm run build:lib && npm run build:demo",
+    "build:lib": "npm run copy:readme && ng build ng-date-range-picker",
+    "build:demo": "ng build ng-date-range-picker --base-href='https://adampenn.github.io/ng-date-range-picker/'",
+    "format:check": "prettier --list-different projects/**/*.ts",
+    "format:write": "prettier --write projects/**/*.ts",
+    "format-package-json": "npm-run-all format-package-json:*",
+    "format-package-json:lib": "prettier --write 'projects/ng-date-range-picker/package.json'",
+    "format-package-json:main": "prettier --write 'package.json'",
     "test": "ng test",
+    "test:lib": "ng test ng-date-range-picker",
+    "test:lib-coverage": "ng test ng-date-range-picker --code-coverage --watch=false",
+    "report-coverage:lib": "cat ./coverage/ng-date-range-picker/lcov.info | codecov",
+    "publish:demo": "npx angular-cli-ghpages --dir=./dist/ng-date-range-picker-showcase",
+    "publish:lib": "npx semantic-release",
+    "adjust-version": "npm-run-all adjust-version:*",
+    "adjust-version:lib": "rjp projects/ng-date-range-picker/package.json version $VERSION",
+    "adjust-version:main": "rjp package.json version $VERSION",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "format:check": "npx prettier --list-different 'projects/**/*.ts'",
-    "format:write": "npx prettier --write 'projects/**/*.ts'",
-    "test:lib-coverage": "ng test ng-date-range-picker --code-coverage --watch=false",
-    "report-coverage:lib": "cat ./coverage/ng-date-range-picker/lcov.info | npx codecov"
+    "semantic-release": "semantic-release"
   },
   "private": false,
   "dependencies": {
@@ -35,11 +48,15 @@
     "@angular/cli": "~8.3.3",
     "@angular/compiler-cli": "~8.2.4",
     "@angular/language-service": "~8.2.4",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/prompt": "^8.1.0",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codecov": "^3.5.0",
     "codelyzer": "^5.0.0",
+    "copyfiles": "^2.1.1",
     "husky": "^3.0.5",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -60,13 +77,27 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
     "projects/**/*.ts": [
       "prettier --write",
       "git add"
+    ],
+    "package.json": [
+      "prettier --write",
+      "git add"
     ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adampenn/ng2-daterangepicker.git"
   }
 }
