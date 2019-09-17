@@ -10,9 +10,6 @@
     "moment": "^2.24.0",
     "rxjs": "^6.5.3"
   },
-  "dependencies": {
-  },
-  "devDependencies": {
-    "@types/jquery": "^3.3.31"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
