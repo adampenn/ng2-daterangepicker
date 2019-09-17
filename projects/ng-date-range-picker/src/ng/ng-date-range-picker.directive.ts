@@ -43,6 +43,8 @@ export class DateRangePickerDirective implements AfterViewInit, OnDestroy, DoChe
   constructor(private input: ElementRef, private config: NgDateRangePickerService, private differs: KeyValueDiffers) {
     this.differ.options = differs.find(this.options).create();
     this.differ.settings = differs.find(this.config.settings).create();
+
+    // comnmentr
   }
 
   ngAfterViewInit() {
