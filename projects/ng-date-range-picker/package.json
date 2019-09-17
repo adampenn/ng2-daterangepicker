@@ -1,6 +1,6 @@
 {
   "name": "jedi-daterangepicker",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^8.2.4",
     "@angular/core": "^8.2.4",
