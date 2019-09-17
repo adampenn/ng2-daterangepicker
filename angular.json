@@ -25,7 +25,7 @@
             ],
             "styles": [
               "projects/ng-date-range-picker-showcase/src/styles.css",
-              "projects/ng-date-range-picker/node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ionicons/dist/css/ionicons.min.css"
             ],
             "scripts": []
