@@ -21,9 +21,9 @@ jobs:
       skip_cleanup: true
       github_token: $GH_TOKEN
       local_dir: dist/ng-date-range-picker-showcase
-    if: branch = angular-library-rewrite
+    if: branch = master
   - stage: build & publish lib
     script:
     - npm run build:lib
-    # - npm run publish:lib
-    if: branch = angular-library-rewrite
+    - npm run publish:lib
+    if: branch = master
