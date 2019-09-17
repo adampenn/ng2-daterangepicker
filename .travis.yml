@@ -11,7 +11,7 @@ jobs:
     - ng lint
   - stage: test
     script:
-    - npm run test:lib-coverage
+    - npm run test-headless:lib-coverage
     - npm run report-coverage:lib
   - stage: build & publish showcase
     script:

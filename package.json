@@ -16,6 +16,7 @@
     "test": "ng test",
     "test:lib": "ng test ng-date-range-picker",
     "test:lib-coverage": "ng test ng-date-range-picker --code-coverage --watch=false",
+    "test-headless:lib-coverage": "ng test ng-date-range-picker --code-coverage --watch=false --browsers=ChromeHeadless",
     "report-coverage:lib": "cat ./coverage/ng-date-range-picker/lcov.info | codecov",
     "publish:demo": "npx angular-cli-ghpages --dir=./dist/ng-date-range-picker-showcase",
     "publish:lib": "npx semantic-release",
