@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/adampenn/ng2-daterangepicker.svg?branch=master)](https://travis-ci.org/adampenn/ng2-daterangepicker)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![codecov](https://codecov.io/gh/adampenn/ng2-daterangepicker/branch/master/graph/badge.svg)](https://codecov.io/gh/adampenn/ng2-daterangepicker)
+
 ## jedi-daterangepicker
 This is an Angular 8 port of the popular Date Range Picker for Bootstrap http://www.daterangepicker.com/
 
